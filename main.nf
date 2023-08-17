@@ -12,9 +12,8 @@ process COMPRESS {
 	
 script:
     """
-    mkdir mytemp
-    ennaf -o ${name}_1.naf --temp-dir mytemp ${reads[0]} 
-    ennaf -o ${name}_2.naf --temp-dir mytemp ${reads[1]} 
+    ennaf  ${reads[0]} -o ${name}_1.naf --temp-dir tmp
+    ennaf  ${reads[1]} -o ${name}_2.naf --temp-dir tmp
     """
 }
 
@@ -30,8 +29,8 @@ process DECOMPRESS {
 	
     script:
     """
-    unnaf --fastq ${reads[0]} > ${name}_1.fastq
-    unnaf --fastq ${reads[1]} > ${name}_2.fastq
+    unnaf ${reads[0]} -o  ${name}_1.fastq
+    unnaf ${reads[1]} -o  ${name}_2.fastq
     """
 }
 
