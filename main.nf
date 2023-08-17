@@ -12,8 +12,8 @@ process COMPRESS {
 	
 script:
     """
-    ennaf  ${reads[0]} -o ${name}_1.naf --temp-dir tmp
-    ennaf  ${reads[1]} -o ${name}_2.naf --temp-dir tmp
+    ennaf  ${reads[0]} -o ${name}_1.naf --temp-dir .
+    ennaf  ${reads[1]} -o ${name}_2.naf --temp-dir .
     """
 }
 
