@@ -36,8 +36,7 @@ process DECOMPRESS {
 
 workflow{
     read_pairs_ch = channel.fromFilePairs( params.reads, checkIfExists: true ) 
-    FASTP(read_pairs_ch)
-    COMPRESS(FASTP.out.sample_trimmed)
+    COMPRESS(read_pairs_ch)
     DECOMPRESS(COMPRESS.out.compressed_reads)
 }
 
