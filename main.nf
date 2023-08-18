@@ -26,7 +26,7 @@ process COMPRESS {
     tuple val(name), path(reads)
 	
     output:
-    tuple val(name), path("${name}*.trimmed.naf"), emit: compressed_reads
+    tuple val(name), path("${name}*.naf"), emit: compressed_reads
 	
 script:
     """
