@@ -14,11 +14,7 @@ process FASTP {
 
     script:
     """
-    
-
     fastp -i ${reads[0]} -I ${reads[1]} -o ${name}.R1.trimmed.fastq -O ${name}.R2.trimmed.fastq --detect_adapter_for_pe --json ${name}_fastp.json --html ${name}_fastp.html --thread ${params.threads}
-
-    
     """
 }
 
